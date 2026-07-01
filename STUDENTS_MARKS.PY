@@ -1,32 +1,26 @@
-def calculate_average(student_data):
-    total = sum(student_data.values())
-    return total / len(student_data)
+students = [
+    {"name": "Alice", "marks": 85},
+    {"name": "Bob", "marks": 78},
+    {"name": "Charlie", "marks": 92},
+    {"name": "David", "marks": 88},
+    {"name": "Emma", "marks": 95},
+    {"name": "Frank", "marks": 73},
+    {"name": "Grace", "marks": 81},
+    {"name": "Henry", "marks": 90},
+    {"name": "Ivy", "marks": 87},
+    {"name": "Jack", "marks": 79}
+]
 
-def print_above_average(student_data, average):
-    print("\nStudents scoring above average:")
-    for name, mark in student_data.items():
-        if mark > average:
-            print(f"{name}: {mark}")
+total = 0
 
-# Dictionary storing 10 students and their marks
-students = {
-    "Alice": 85,
-    "Bob": 72,
-    "Charlie": 90,
-    "David": 68,
-    "Emma": 95,
-    "Frank": 78,
-    "Grace": 88,
-    "Henry": 74,
-    "Ivy": 92,
-    "Jack": 80
-}
+for student in students:
+    total += student["marks"]
 
-# Calculate average mark
-average_mark = calculate_average(students)
+average = total / len(students)
 
-# Display average
-print(f"Average Mark: {average_mark:.2f}")
+print("Average mark:", average)
+print("\nStudents scoring above average:")
 
-# Print students above average
-print_above_average(students, average_mark)
+for student in students:
+    if student["marks"] > average:
+        print(student["name"], "-", student["marks"])
